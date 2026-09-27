@@ -1,0 +1,42 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*.egg-info/
+
+# Virtual environments
+.venv/
+.python-version
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and tools
+.playwright-mcp/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.png
+*.jpg
+*.jpeg
+
+# Logs
+*.log
+
+# Pytest cache
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
