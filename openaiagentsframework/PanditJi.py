@@ -26,7 +26,7 @@ class PanditJI:
          birthTime = input("Please enter your birth time: ")
          birthLocation = input("Please Enter your birth location:")
          birthCountry = input("Please Enter Country:")
-         agent = Agent(name="Pandit Ji", instructions=instruction, model="gpt-4o-mini")   
+         agent = Agent(name="Pandit Ji", instructions=instruction,  model="gpt-4o-mini")   
          user_input = f"Birth Date: {birthDate}, Birth Time: {birthTime}, BirthLocation: {birthLocation}, birthCountry: {birthCountry}"
          result = await Runner.run(agent, user_input)
          print(result.final_output)

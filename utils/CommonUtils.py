@@ -15,7 +15,4 @@ def readPDFfile(path):
     return content
 
 def is_blank(s):
-    return not s or s.strip() == ""
-
-
-        
+    return not s or s.strip() == ""        

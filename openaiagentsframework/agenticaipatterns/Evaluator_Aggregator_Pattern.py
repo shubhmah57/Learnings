@@ -1,6 +1,12 @@
 import asyncio
 from dotenv import load_dotenv
-from agents import Agent, Runner, trace, set_default_openai_client, set_tracing_disabled
+from agents import (
+    Agent,
+    ModelSettings,
+    Runner,
+    set_default_openai_client,
+    set_tracing_disabled,
+)
 import os
 from openai import AsyncOpenAI
 
@@ -26,16 +32,39 @@ class Evaluator_Aggregated_Pattern:
         a company that provides a SaaS tool for ensuring SOC2 compliance and preparing for audits, powered by AI.
         You write concise, to the point cold emails."""
 
-        agent1 = Agent(name="Agent1", instructions= instructions1, model="gpt-4o-mini")
-        agent2 = Agent(name="Agent2", instructions= instructions2, model="gpt-4o-mini")
-        agent3 = Agent(name="Agent3", instructions= instructions3, model="gpt-4o-mini")
+        model_settings = ModelSettings(max_tokens=500)
+        agent1 = Agent(
+            name="Agent1",
+            instructions=instructions1,
+            model="gpt-4o-mini",
+            model_settings=model_settings,
+        )
+        agent2 = Agent(
+            name="Agent2",
+            instructions=instructions2,
+            model="gpt-4o-mini",
+            model_settings=model_settings,
+        )
+        agent3 = Agent(
+            name="Agent3",
+            instructions=instructions3,
+            model="gpt-4o-mini",
+            model_settings=model_settings,
+        )
         message = "Write A COld EMail"
         results = await asyncio.gather(Runner.run(agent1,message),Runner.run(agent2,message),Runner.run(agent3,message))
         output = [result.final_output for result in results]
         print(output)
-        sales_picker = Agent(name="sales_picker",instructions="You pick the best cold sales email from the given options. \
-                Imagine you are a customer and pick the one you are most likely to respond to. \
-                Do not give an explanation; reply with the selected email only.", model="gpt-4o-mini")
+        sales_picker = Agent(
+            name="sales_picker",
+            instructions=(
+                "You pick the best cold sales email from the given options. "
+                "Imagine you are a customer and pick the one you are most likely to respond to. "
+                "Do not give an explanation; reply with the selected email only."
+            ),
+            model="gpt-4o-mini",
+            model_settings=model_settings,
+        )
         response = await Runner.run(sales_picker, str(output))
         print('*******************')
         print(response.final_output)
