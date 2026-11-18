@@ -9,7 +9,6 @@ from utils.modelconfig import ModelConfig
 class ExpenseManagement(ModelConfig):
     def __init__(self):
         super().__init__()
-    INSTRUCTIONS = """"""
     async def main(self)-> "None":
         expense_server_file = Path(__file__).with_name("expenseServer.py").resolve()
 

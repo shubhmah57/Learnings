@@ -42,7 +42,7 @@ class firstprogrram(ModelConfig):
             tool_filter=BROWSER_TOOLS,
         ) as mcp_server_browser:
             task = (
-            "Find a great Bombay Sandwich recipe, verify its ingredients and "
+            "Find a great Banoffie coffe recipe, verify its ingredients and "
             "method from a web source, and return a concise Markdown recipe "
             "with the source URL."
             )

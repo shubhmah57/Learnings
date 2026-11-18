@@ -31,6 +31,9 @@ Thumbs.db
 *.png
 *.jpg
 *.jpeg
+*.db
+*.sqlite
+*.sqlite3
 
 # Logs
 *.log
